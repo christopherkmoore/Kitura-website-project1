@@ -1,0 +1,15 @@
+<html>
+    <body>
+        {% if name %}
+            <h1>{{ name | capitalize}} </h1>
+
+            <p>{{ bio }}</p>
+        {% else %}
+            <h1> Unknown Staff Member </h1>
+            <p> I feel sorry for you </p>
+        {% endif %}
+
+    {% include "staffDirectory.stencil" %}
+    {% include "footer.stencil" %}
+    </body>
+</html>

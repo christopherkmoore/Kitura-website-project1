@@ -1,0 +1,6 @@
+<html>
+<body>
+
+{% include "staffDirectory.stencil" %}
+</body>
+</html>

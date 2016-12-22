@@ -1,0 +1,8 @@
+<html>
+    <body>
+        <h1> Get in Contact with us </h1>
+        <p> Call me up at 555-5555. </p>
+
+        {% include "footer.stencil" %}
+    </body>
+</html>
