@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>{% block title %}{% endblock %} </title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/static/css/site.css" rel="stylesheet">
+  </head>
+
+  <body>
+  	<div class ="container header-center">
+  		<h1> Christopher Moore </h1>
+  		<a class="btn btn-default" href="/">Blog</a>
+  		<a class="btn btn-default" href="/about">About</a>
+  		<a class="btn btn-default" href="/work">Work</a>
+
+
+  		</br>
+  		</br>
+  		</br>
+
+  	</div>
+    <div class="container">
+
+      <!-- Main component for a primary marketing message or call to action -->
+      <div class="container">
+        {% block body %}{% endblock %}
+      </div>
+
+    </div> <!-- /container -->
+
+    <div class="footer">
+        <a href="https://github.com/christopherkmoore"> <img src="/static/images/1482474141_github.png"></img></a>
+        <a href="https://twitter.com/crztopherkmoore"> <img src="/static/images/1482474167_twitter_online_social_media.png"></img></a>
+        <a href="https://linkedin.com/in/christopher-moore1"> <img src="/static/images/1482474181_linked_in_online_social_media.png"></img></a>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+  </body>
+</html>
