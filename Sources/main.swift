@@ -36,5 +36,5 @@ router.get("/contact") {
 
 
 
-Kitura.addHTTPServer(onPort: 8080, with: router)
+Kitura.addHTTPServer(onPort: 20504, with: router)
 Kitura.run()
