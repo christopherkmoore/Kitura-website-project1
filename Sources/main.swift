@@ -2,6 +2,7 @@ import Kitura
 import LoggerAPI
 import HeliumLogger
 import KituraStencil
+import Foundation
 
 HeliumLogger.use()
 let router = Router()
@@ -34,7 +35,9 @@ router.get("/contact") {
     next()
 }
 
+let port = Int(ProcessInfo.processInfo.environment["PORT"] ?? "8080") ?? 8080
 
 
-Kitura.addHTTPServer(onPort: 20504, with: router)
+
+Kitura.addHTTPServer(onPort: port, with: router)
 Kitura.run()
