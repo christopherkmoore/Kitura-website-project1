@@ -18,14 +18,12 @@
   </head>
 
   <body>
-  	<div class ="container header-center">
+  	<div class="header-center">
   		<h1> Christopher Moore </h1>
+      </br>
   		<a class="btn btn-default" href="/">Blog</a>
   		<a class="btn btn-default" href="/about">About</a>
   		<a class="btn btn-default" href="/work">Work</a>
-
-
-  		</br>
   		</br>
   		</br>
 
@@ -33,7 +31,7 @@
     <div class="container">
 
       <!-- Main component for a primary marketing message or call to action -->
-      <div class="container">
+      <div>
         {% block body %}{% endblock %}
       </div>
 
@@ -43,6 +41,11 @@
         <a href="https://github.com/christopherkmoore"> <img src="/static/images/1482474141_github.png"></img></a>
         <a href="https://twitter.com/crztopherkmoore"> <img src="/static/images/1482474167_twitter_online_social_media.png"></img></a>
         <a href="https://linkedin.com/in/christopher-moore1"> <img src="/static/images/1482474181_linked_in_online_social_media.png"></img></a>
+    </div>
+    </br>
+    <div> 
+      <p style="text-align: center;font-size:12px"> Website made with Swift and Kitura, <a href="https://github.com/christopherkmoore/Kitura-website-project1"> check it out</a> 
+      </p>
     </div>
 
     <!-- Bootstrap core JavaScript

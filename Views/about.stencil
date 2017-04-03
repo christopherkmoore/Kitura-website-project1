@@ -1,12 +1,16 @@
 {% extends "master.stencil" %}
 {% block body %}
 <h2 style="text-align:center;"> About </h2>
-<p> I started down a path to learn how to make fully functional iOS app while working full time. Six months later, after working with many a framework beginning with UI and Core, and having built data-driven applications from third party APIs, I've met that challenge. I can think of no greater marker of motivation or dedication than being able to look back on my projects as milestones for my growth as a mobile developer. As someone who's proven that personal goals can be achieved through dedication and work, I find myself looking towards the next project, and I already know I want it to be bigger.
+<p style="padding-left:15%;padding-right:15%"> 
+
+Hello. I'm Chris, a software developer in the Seattle Area. Before I did software development I worked in wine bars and really big rock clubs ruining my ears. I like wine, coffee, coding and turning creative ideas into mobile apps. Right now I'm looking for contract or full-time work, so feel free to reach out to me with any opportunities.
 </br></br></br>
 </p>
-<h2 style="text-align:center;"> ¯\_(ツ)_/¯ </h2>
+<h3 style="text-align:center; padding:0px">¯\_(ツ)_/¯</h2>
+<h4 style="text-align:center"> Reach out to Chris @ this domain </h2>
 </br>
 {% endblock %}
+<h3 style="text-align:center; padding:0px">¯\_(ツ)_/¯</h2>
 
 {% block title %}Contact{% endblock %}
 
