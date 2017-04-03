@@ -4,7 +4,8 @@
 <p> I started down a path to learn how to make fully functional iOS app while working full time. Six months later, after working with many a framework beginning with UI and Core, and having built data-driven applications from third party APIs, I've met that challenge. I can think of no greater marker of motivation or dedication than being able to look back on my projects as milestones for my growth as a mobile developer. As someone who's proven that personal goals can be achieved through dedication and work, I find myself looking towards the next project, and I already know I want it to be bigger.
 </br></br></br>
 </p>
-<h2 style="text-align:center;"> 🐸 </h2>
+<h2 style="text-align:center;"> ¯\_(ツ)_/¯ </h2>
+</br>
 {% endblock %}
 
 {% block title %}Contact{% endblock %}

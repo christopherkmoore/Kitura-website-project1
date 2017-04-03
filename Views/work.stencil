@@ -1,1 +1,5 @@
 {% extends "master.stencil" %}
+	{% block body %}
+	{% endblock %}
+
+{% block title %}Work{% endblock %}
