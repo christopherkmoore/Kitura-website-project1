@@ -5,6 +5,66 @@ body {
 .header-center {
     text-align: center
 }
+.tile-container {
+	padding-right: 10%;
+	padding-left: 10%;
+	display:flex;
+	justify-content: center;
+	flex-direction:row;
+	flex-wrap: wrap;
+}
+
+.tile {
+	z-index: 1;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+
+.image {
+	display: block;
+	opacity: 1;
+	max-width: 100%;
+	height: auto;
+	transition: all 0.5s;
+}
+
+.text {
+	color: black;
+	position: relative;
+	text-align: center;
+	bottom: 200px;
+	font-size: 20px;
+	height: 0px;
+	opacity: 0;
+	transition: ease-in 2s;
+	transition: ease-out 0.5s;
+}
+
+.description {
+	color: black;
+	position: relative;
+	text-align: center;
+	bottom: 160px;
+	font-size: 20px;
+	height: 0px;
+	opacity: 0;
+	transition: ease-in 2s;
+	transition: ease-out 0.5s;
+}
+
+.tile:hover .image {
+	transform: scale(1.2);
+	opacity: 0.4;
+}
+.tile:hover .text {
+	opacity: 1.0;
+}
+.tile:hover .description {
+	opacity: 1.0;
+}
+
 
 .footer {
     text-align: center

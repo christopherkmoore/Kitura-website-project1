@@ -1,9 +1,37 @@
 {% extends "master.stencil" %}
-	{% block body %}
-	<h4> Packed <h4>
-	<h4> Travellr <h4>
-	<h4> Virtual Tourist <h4>
-	<h4> Meme Me <h4>
-	{% endblock %}
+{% block body %}
+   
+<link href="/static/css/work_grid.css" rel="stylesheet">
+
+<ul class="photo-grid">
+	<li>
+		<a href="/work/Packed">
+			<figure>
+				<img src="/static/images/PackedTileLarge.png" height="400" width="320" >
+				<figcaption><p>Packed!</p></figcaption>
+			</figure>
+		</a>
+	</li>
+	<li>
+		<a href="work/VirtualTourist">
+			<figure>
+				<img src="/static/images/virtualTouristPhotosStiched.png" height="300" width="320">
+				<figcaption><p>VirtualTourist</p></figcaption>
+			</figure>
+		</a>
+	</li>
+	<li><a href="work/mememe">
+			<figure>
+				<img src="/static/images/MemeMePicture.png" height="300" width="320">
+				<figcaption><p>Meme Me</p></figcaption>
+			</figure>
+		</a>
+	</li>
+</ul>
+
+
+
+
+{% endblock %}
 
 {% block title %}Work{% endblock %}

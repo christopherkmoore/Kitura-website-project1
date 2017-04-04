@@ -1,0 +1,37 @@
+{% extends "master.stencil" %}
+	{% block body %}
+
+		 <div class="container tile-container">
+		 	<div class="tile">
+		 	    <img src="/static/images/PackedTile.png" class="image" /> 
+		 		<a href = "/work/packed"> </a>
+	    		<div class="text">Packed</div>
+	    		<div class="description"> iOS Application </div>
+	    	</div>
+	    	<div class="tile">
+		 		<a href = "/work/packed"> </a>
+    			<img src="/static/images/PackedTile.png" class="image" /> 
+	    		<div class="text">Packed</div>
+	    		<div class="description"> iOS Application </div>
+	    	</div>
+	    	<div class="tile">
+		 		<a href = "/work/packed"> </a>
+    			<img src="/static/images/PackedTile.png" class="image" /> 
+	    		<div class="text">Packed</div>
+	    		<div class="description"> iOS Application </div>
+	    	</div>
+	    	<div class="tile">
+		 		<a href = "/work/packed"> </a>
+    			<img src="/static/images/PackedTile.png" class="image" /> 
+	    		<div class="text">Packed</div>
+	    		<div class="description"> iOS Application </div>
+	    	</div>
+
+		</div>
+
+		</br>
+
+	{% endblock %}
+
+{% block title %}Work{% endblock %}
+

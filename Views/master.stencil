@@ -31,9 +31,7 @@
     <div class="container">
 
       <!-- Main component for a primary marketing message or call to action -->
-      <div>
-        {% block body %}{% endblock %}
-      </div>
+      {% block body %}{% endblock %}
 
     </div> <!-- /container -->
 
