@@ -25,13 +25,28 @@
 			</figure>
 		</a>
 	</li>
-	<li><a href="work/mememe">
+	<li><a href="work/Travellr">
+			<figure>
+				<img src="/static/images/TravellrLarge.png" height="300" width="320">
+				<figcaption><p>Travellr</p></figcaption>
+			</figure>
+		</a>
+	</li>
+	<li><a href="work/Mememe">
 			<figure>
 				<img src="/static/images/MemeMePicture.png" height="300" width="320">
 				<figcaption><p>Meme Me</p></figcaption>
 			</figure>
 		</a>
 	</li>
+	<li><a href="work/PitchPerfect">
+			<figure>
+				<img src="/static/images/PitchPerfectPhotos.jpg" height="300" width="320">
+				<figcaption><p>PitchPerfect</p></figcaption>
+			</figure>
+		</a>
+	</li>
+
 </ul>
 
 <!-- images need async download to not download like shit -->
