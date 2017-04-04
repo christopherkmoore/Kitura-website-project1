@@ -3,6 +3,11 @@
    
 <link href="/static/css/work_grid.css" rel="stylesheet">
 
+<!-- This HTML and CSS styling is very blatantly ripped from Natlie MacLees from her website Geek Girl Life-->
+<!-- http://geekgirllife.com/animate-text-over-images-on-hover-without-javascript/  -->
+<!-- I hope you don't mind my repurposing it for my own use -->
+
+
 <ul class="photo-grid">
 	<li>
 		<a href="/work/Packed">
@@ -28,6 +33,9 @@
 		</a>
 	</li>
 </ul>
+
+<!-- images need async download to not download like shit -->
+
 
 
 
