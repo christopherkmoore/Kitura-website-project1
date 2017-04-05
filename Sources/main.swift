@@ -27,9 +27,7 @@ router.get("/") {
 	let excerpt1 = URL(fileURLWithPath: "/Users/modelf/iOS_projects/KituraSwift/public/blogPostExcerpts/HelloWorld1.html")
 	let excerpt2 = URL(fileURLWithPath: "/Users/modelf/iOS_projects/KituraSwift/public/blogPostExcerpts/HelloWorld2.html")
 	let excerpt3 = URL(fileURLWithPath: "/Users/modelf/iOS_projects/KituraSwift/public/blogPostExcerpts/HelloWorld3.html")
-	
-	if let data69 = try? String(contentsOf: <#T##URL#>, encoding: <#T##String.Encoding#>)
-	
+		
 	if let data = try? String(contentsOf: excerpt1, encoding: .unicode), let data2 = try? String(contentsOf: excerpt2), let data3 = try? String(contentsOf: excerpt3, encoding: .unicode) {
 		
 		context = [
