@@ -37,12 +37,12 @@ router.get("/") {
 			
 		]
 	}
-	    try response.render("blog", context: context)
+	try response.render("blog", context: context)
     next()
 }
 
 router.get("/blogPosts/*") { request, response, next in
-	
+	var context = [String: Any] ()
 	if let path = request.parsedURL.path, path != "/blogPosts/" {
 		var context = [String: Any]()
 		
@@ -53,12 +53,9 @@ router.get("/blogPosts/*") { request, response, next in
 				"markdown": KituraMarkdown.render(from: data)
 				]
 		}
-
-
-		
-		try response.render("blogPost", context: context)
-		response.status(.OK)
 	}
+	try response.render("blogPost", context: context)
+	response.status(.OK)
 	next()
 }
 
