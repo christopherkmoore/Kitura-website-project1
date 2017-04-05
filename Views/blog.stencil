@@ -1,5 +1,14 @@
 {% extends "master.stencil" %}
 {% block body %}
-<h2>Hello World!</h2>
+
+<link href="/static/css/bootstrap.min.css" rel="stylesheet">
+<link href="/static/css/blog.css" rel="stylesheet">
+
+
+{{ excerpt1 }}
+{{ excerpt2 }}
+{{ excerpt3 }}
+
+ </br></br>
 {% endblock %}
 {% block title %}Blog{% endblock %}
