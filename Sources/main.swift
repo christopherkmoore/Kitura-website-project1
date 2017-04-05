@@ -36,9 +36,10 @@ router.get("/") {
 			"excerpt3": data3
 			
 		]
+		try response.render("blog", context: context)
+		next()
 	}
-	try response.render("blog", context: context)
-    next()
+
 }
 
 router.get("/blogPosts/*") { request, response, next in
@@ -47,12 +48,19 @@ router.get("/blogPosts/*") { request, response, next in
 		var context = [String: Any]()
 		
 		let url = URL(fileURLWithPath: "/Users/modelf/iOS_projects/KituraSwift/public/\(path)")
-		if let data = try? String(contentsOf: url) {
+		var data: String
+		do {
+			 data = try String(contentsOf: url)
 		
 			 context = [
 				"markdown": KituraMarkdown.render(from: data)
 				]
-		}
+			} catch {
+				data = ""
+				context = [
+					"markdown": KituraMarkdown.render(from: data)
+				]
+			}
 		try response.render("blogPost", context: context)
 		response.status(.OK)
 		next()
