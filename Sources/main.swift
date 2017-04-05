@@ -27,8 +27,8 @@ router.get("/") {
 	let excerpt1 = URL(fileURLWithPath: "/Users/modelf/iOS_projects/KituraSwift/public/blogPostExcerpts/HelloWorld1.html")
 	let excerpt2 = URL(fileURLWithPath: "/Users/modelf/iOS_projects/KituraSwift/public/blogPostExcerpts/HelloWorld2.html")
 	let excerpt3 = URL(fileURLWithPath: "/Users/modelf/iOS_projects/KituraSwift/public/blogPostExcerpts/HelloWorld3.html")
-		
-	if let data = try? String(contentsOf: excerpt1, encoding: .unicode), let data2 = try? String(contentsOf: excerpt2), let data3 = try? String(contentsOf: excerpt3, encoding: .unicode) {
+	
+	if let data = try? String(contentsOf: excerpt1), let data2 = try? String(contentsOf: excerpt2), let data3 = try? String(contentsOf: excerpt3) {
 		
 		context = [
 			"excerpt1": data,
@@ -47,16 +47,17 @@ router.get("/blogPosts/*") { request, response, next in
 		var context = [String: Any]()
 		
 		let url = URL(fileURLWithPath: "/Users/modelf/iOS_projects/KituraSwift/public/\(path)")
-		if let data = try? String(contentsOf: url, encoding: .unicode) {
+		if let data = try? String(contentsOf: url) {
 		
 			 context = [
 				"markdown": KituraMarkdown.render(from: data)
 				]
 		}
+		try response.render("blogPost", context: context)
+		response.status(.OK)
+		next()
 	}
-	try response.render("blogPost", context: context)
-	response.status(.OK)
-	next()
+
 }
 
 router.get("/work") {
