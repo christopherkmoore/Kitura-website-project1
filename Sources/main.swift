@@ -21,27 +21,24 @@ router.get("/") {
 	next()
 }
 
-router.get("/blogPosts/*") { request, response, next in
-	var context = [String: Any] ()
-	if let path = request.parsedURL.path, path != "/blogPosts/" {
-		var context = [String: Any]()
-		
-		//local
-//		let url = URL(fileURLWithPath: "/Users/modelf/iOS_projects/KituraSwift/public/\(path)")
-		// heroku
-		let url = URL(fileURLWithPath: "/public/\(path)")
-		if let data = try? String(contentsOf: url) {
-			context = [
-				"markdown": KituraMarkdown.render(from: data)
-			]
-		}
-		try response.render("blogPost", context: context)
-
-	}
+router.get("/blogPosts/HelloWorld1") { request, response, next in
+	
+	try response.render("HelloWorld1", context: [:])
 	response.status(.OK)
 	next()
 }
-
+router.get("/blogPosts/HelloWorld2") { request, response, next in
+	
+	try response.render("HelloWorld2", context: [:])
+	response.status(.OK)
+	next()
+}
+router.get("/blogPosts/HelloWorld3") { request, response, next in
+	
+	try response.render("HelloWorld3", context: [:])
+	response.status(.OK)
+	next()
+}
 router.get("/work") {
     request, response, next in
     try response.render("work", context: [:])
