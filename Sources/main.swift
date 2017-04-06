@@ -30,18 +30,19 @@ router.get("/") {
 //	let excerpt3 = URL(fileURLWithPath: "/Users/modelf/iOS_projects/KituraSwift/public/blogPostExcerpts/HelloWorld3.html")
 	
 	// heroku urls
-	let excerpt1 = URL(fileURLWithPath: "/app/public/blogPostExcerpts/HelloWorld1.html")
-	let excerpt2 = URL(fileURLWithPath: "/app/public/blogPostExcerpts/HelloWorld2.html")
-	let excerpt3 = URL(fileURLWithPath: "/app/public/blogPostExcerpts/HelloWorld3.html")
+	let excerpt1 = URL(fileURLWithPath: "/public/blogPostExcerpts/HelloWorld1.html")
+	let excerpt2 = URL(fileURLWithPath: "/public/blogPostExcerpts/HelloWorld2.html")
+	let excerpt3 = URL(fileURLWithPath: "/public/blogPostExcerpts/HelloWorld3.html")
 
-	
-
-	context = [
-		"excerpt1": try String(contentsOf: excerpt1),
-		"excerpt2": try String(contentsOf: excerpt2),
-		"excerpt3": try String(contentsOf: excerpt3)
+	if let data1 = try? String(contentsOf: excerpt1, encoding: .utf8), let data2 = try? String(contentsOf: excerpt2, encoding: .utf8), let data3 = try? String(contentsOf: excerpt3, encoding: .utf8) {
 		
-	]
+		context = [
+			"excerpt1": data1,
+			"excerpt2": data2,
+			"excerpt3": data3
+		]
+	}
+	print(context)
 
 	try response.render("blog", context: context)
 	next()
@@ -56,12 +57,10 @@ router.get("/blogPosts/*") { request, response, next in
 //		let url = URL(fileURLWithPath: "/Users/modelf/iOS_projects/KituraSwift/public/\(path)")
 		// heroku
 		let url = URL(fileURLWithPath: "/app/public/\(path)")
-		if let data = try? Data(contentsOf: url) {
+		if let data = try? String(contentsOf: url, encoding: .utf8) {
 			context = [
 				"markdown": KituraMarkdown.render(from: data)
 			]
-			
-			
 		}
 		try response.render("blogPost", context: context)
 
