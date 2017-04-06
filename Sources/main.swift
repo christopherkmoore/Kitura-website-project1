@@ -30,9 +30,9 @@ router.get("/") {
 	
 
 	context = [
-		"excerpt1": try! String(contentsOf: excerpt1),
-		"excerpt2": try! String(contentsOf: excerpt2),
-		"excerpt3": try! String(contentsOf: excerpt3)
+		"excerpt1": try String(contentsOf: excerpt1),
+		"excerpt2": try String(contentsOf: excerpt2),
+		"excerpt3": try String(contentsOf: excerpt3)
 		
 	]
 
