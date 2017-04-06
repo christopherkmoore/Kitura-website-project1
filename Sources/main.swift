@@ -28,15 +28,14 @@ router.get("/") {
 	let excerpt2 = URL(fileURLWithPath: "/Users/modelf/iOS_projects/KituraSwift/public/blogPostExcerpts/HelloWorld2.html")
 	let excerpt3 = URL(fileURLWithPath: "/Users/modelf/iOS_projects/KituraSwift/public/blogPostExcerpts/HelloWorld3.html")
 	
-	if let data = try? Data(contentsOf: excerpt1), let data2 = try? Data(contentsOf: excerpt2), let data3 = try? Data(contentsOf: excerpt3) {
-		context = [
-			"excerpt1": String(data: data, encoding: .utf8),
-			"excerpt2": String(data: data2, encoding: .utf8),
-			"excerpt3": String(data: data3, encoding: .utf8),
-			
-		]
 
-	}
+	context = [
+		"excerpt1": try! String(contentsOf: excerpt1),
+		"excerpt2": try! String(contentsOf: excerpt2),
+		"excerpt3": try! String(contentsOf: excerpt3)
+		
+	]
+
 	try response.render("blog", context: context)
 	next()
 }
