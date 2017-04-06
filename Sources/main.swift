@@ -17,34 +17,7 @@ router.add(templateEngine: KituraMarkdown())
 
 router.get("/") {
     request, response, next in
-
-	// changing this will change the blog posts that are displayed on the root page
-	// this is a bad way to do this, a better way would be to pass an excerpt from 
-	// the generated MD file (ex: http://www.jessesquires.com/ ) 
-
-	var context = [String: Any]()
-	
-	// local urls
-//	let excerpt1 = URL(fileURLWithPath: "/Users/modelf/iOS_projects/KituraSwift/public/blogPostExcerpts/HelloWorld1.html")
-//	let excerpt2 = URL(fileURLWithPath: "/Users/modelf/iOS_projects/KituraSwift/public/blogPostExcerpts/HelloWorld2.html")
-//	let excerpt3 = URL(fileURLWithPath: "/Users/modelf/iOS_projects/KituraSwift/public/blogPostExcerpts/HelloWorld3.html")
-	
-	// heroku urls
-	let excerpt1 = URL(fileURLWithPath: "/public/blogPostExcerpts/HelloWorld1.html")
-	let excerpt2 = URL(fileURLWithPath: "/public/blogPostExcerpts/HelloWorld2.html")
-	let excerpt3 = URL(fileURLWithPath: "/public/blogPostExcerpts/HelloWorld3.html")
-
-	if let data1 = try? String(contentsOf: excerpt1, encoding: .utf8), let data2 = try? String(contentsOf: excerpt2, encoding: .utf8), let data3 = try? String(contentsOf: excerpt3, encoding: .utf8) {
-		
-		context = [
-			"excerpt1": data1,
-			"excerpt2": data2,
-			"excerpt3": data3
-		]
-	}
-	print(context)
-
-	try response.render("blog", context: context)
+	try response.render("blog", context: [:])
 	next()
 }
 

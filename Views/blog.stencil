@@ -5,9 +5,49 @@
 <link href="/static/css/blog.css" rel="stylesheet">
 
 
-{{ excerpt1 }}
-{{ excerpt2 }}
-{{ excerpt3 }}
+<div class="col-sm-12 col-sm-offset-0 col-md-10 col-md-offset-1">
+	<div class="post-list">
+		<article class="post">
+			<h1 class="post-title"> Hello World </h1>
+			<h2 class="post-description"> Description of new Hello World <small> 07 Mar 2017 </small>
+			</h2>
+			<div class="post-excerpt"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctu.
+
+
+			</div>
+			</br>
+			<a href="/blogPosts/HelloWorld1.md"> Read More ... -> </a>
+
+		</article>
+
+			<article class="post">
+			<h1 class="post-title"> Hello World 2 </h1>
+			<h2 class="post-description"> Description of Hello World 2 <small> 07 Mar 2017 </small>
+			</h2>
+			<div class="post-excerpt"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctu.
+
+
+			</div>
+			</br>
+			<a href="/blogPosts/HelloWorld2.md"> Read More ... -> </a>
+
+		</article>
+
+				<article class="post">
+			<h1 class="post-title"> Hello World 3 </h1>
+			<h2 class="post-description"> Description of Hello World 3 <small> 07 Mar 2017 </small>
+			</h2>
+			<div class="post-excerpt"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctu.
+
+
+			</div>
+			</br>
+			<a href="/blogPosts/HelloWorld3.md"> Read More ... -> </a>
+		</article>
+
+	</div>
+</div>
+
 
  </br></br>
 {% endblock %}
