@@ -56,8 +56,8 @@ router.get("/blogPosts/*") { request, response, next in
 		//local
 //		let url = URL(fileURLWithPath: "/Users/modelf/iOS_projects/KituraSwift/public/\(path)")
 		// heroku
-		let url = URL(fileURLWithPath: "/app/public/\(path)")
-		if let data = try? String(contentsOf: url, encoding: .utf8) {
+		let url = URL(fileURLWithPath: "/public/\(path)")
+		if let data = try? String(contentsOf: url) {
 			context = [
 				"markdown": KituraMarkdown.render(from: data)
 			]
