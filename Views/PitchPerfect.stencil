@@ -11,7 +11,7 @@
 
 <div class="container"> 
 
-	<div class="col-sm-3 col-sm-offset-2 col-md-3 col-md-offset-3"> 
+  	<div class="col-sm-3 col-sm-offset-1 col-md-4 col-lg-4"> 
 	</br>
 	<p>Pitch Perfect was one of my first projects in iOS. It shallowly brushed against the AVFoundation and UIKit APIs to record a sound and apply a voice effect on top of it. </p>
 

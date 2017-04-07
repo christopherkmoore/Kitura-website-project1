@@ -11,9 +11,9 @@
 
 <div class="container"> 
 
-	<div class="col-sm-3 col-sm-offset-2 col-md-3 col-md-offset-3"> 
+  	<div class="col-sm-3 col-sm-offset-1 col-md-4 col-lg-4"> 
 		</br>
-		<p>Packed provides a framework for crowd-sourcing data to let its users know how full a place is.  </p>
+		<p>Packed provides a framework for crowd-sourcing data to let its users know how full a place is. It taps into Firebase's ability to basically roll your own database-as-API to make sure updates from one device are immediately incor </p>
 
 		<p> Skills/APIs used </p>
 			<li> UIKit </li>
