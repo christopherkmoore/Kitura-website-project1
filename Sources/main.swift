@@ -21,28 +21,38 @@ router.get("/") {
 	next()
 }
 
-router.get("/blogPosts/HelloWorld1") { request, response, next in
-	
-	try response.render("HelloWorld1", context: [:])
-	response.status(.OK)
+// can remake with a wildcard if i name the stencils the path name ie /blogPost/HelloWorld1.stencil. I wont have to hardcode every get request.
+
+router.get("/blog/*") { request, response, next in
+	if let path = request.parsedURL.path, path != "/blog/" {
+		var slightlyEditedPath = path
+		for i in 0...5 {
+			slightlyEditedPath.remove(at: slightlyEditedPath.startIndex)
+		}
+		print(slightlyEditedPath)
+		try response.render(slightlyEditedPath, context: [:])
+		response.status(.OK)
+	}
 	next()
 }
-router.get("/blogPosts/HelloWorld2") { request, response, next in
-	
-	try response.render("HelloWorld2", context: [:])
-	response.status(.OK)
-	next()
-}
-router.get("/blogPosts/HelloWorld3") { request, response, next in
-	
-	try response.render("HelloWorld3", context: [:])
-	response.status(.OK)
-	next()
-}
+
 router.get("/work") {
     request, response, next in
     try response.render("work", context: [:])
     next()
+}
+
+router.get("/work/*") { request, response, next in
+	if let path = request.parsedURL.path, path != "/work/" {
+		var slightlyEditedPath = path
+		for i in 0...5 {
+			slightlyEditedPath.remove(at: slightlyEditedPath.startIndex)
+		}
+		print(slightlyEditedPath)
+		try response.render(slightlyEditedPath, context: [:])
+		response.status(.OK)
+	}
+	next()
 }
 
 router.get("/about") {
