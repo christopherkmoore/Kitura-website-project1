@@ -1,0 +1,46 @@
+{% extends "blogPost.stencil" %}
+{% block blogPost %}
+
+<h1 class="post-title"> 9th Time's the Charm </h1>
+<h2 class="post-description"> When things go slightly wrong during submission <small> 07 Mar 2017 </small>
+</h2>
+
+<p> If you’ve ever tried to submit an app to iTunes Connect, you know how painful the process can be for the first submission. If the entire process doesn’t burn a hole in your table, somehow blow up your wireless, and drink the rest of your beer and liquor, you’re bound to be thrown some generic error. Today mine were “(-22421)”, “ITMS-900022”,  “please try again”, and “What’s your problem, idiot?”.
+</p>
+
+<p> Getting an actual descriptive error like this might even make you happy: </br> <img src="/static/images/9thtimesthecharm/error.png"></img>
+</p>
+
+
+<p> This is the third time I’ve submit a new app to iTunes Connect, and I’m honestly happy it only took 12 attempts. </p>
+
+<p> Here is a quick checklist of some of the things I was doing incorrectly. </p>
+
+<ul>
+	<li> I forgot to actually go to iTunes Connect and register a new application before archiving and trying to submit -- that was about 4 failed attempts of “please try again” right there. </li>
+	<li> My bundle ID was already in use. In the future, I’m going to use my actual name instead of the default ‘me’ for my project prefixes. (christopherkmoore.project, instead of me.project) </li>
+	<li> I had to narrow the amount of devices from ‘Universal’ to just ‘iPhone’ with only portrait selected. When you select ‘Universal’ it will expect artwork for a whole lot of devices instead of just the 120 x 120 app image for iPhones. </li>
+	<li> You have to include artwork and assets for the actual icon that appears on the user’s homescreen -- this is perhaps the most frustrating since I’m not good at design work, so creating and resizing images just to satisfy a tyrant seems unjust. </li>
+	<li> Somehow my assets weren’t linked under Target -> App Icons and Launch Images
+	</br> <img src="/static/images/9thtimesthecharm/assetNotInUse.png"/> </br>
+	yea just go ahead and fix that real fast: 
+	</br> <img src="/static/images/9thtimesthecharm/assetInUse.png"/> </br>
+	the default should be AppIcon. I’m honestly an idiot for not figuring this out sooner. I kept creating and resizing images, dropping them into the assets catalog only to rebuild and not see the changes I expected. Adding assets into the catalog for the app icon 120 x 120 should create an app image on the homescreen and also update your file hierarchy </br><img src="/static/images/9thtimesthecharm/fileHierarchy.png"/> </li> 
+</ul>
+
+
+ 
+
+
+<p> It was incredibly frustrating but eventually things worked out: </p> </br> <img src="/static/images/9thtimesthecharm/success.png"/> </br>
+
+
+</br> <p> Also as a side note, new xcode projects set the default deployment target to the most recent version of iOS. Unless you’re trying to take advantage of a new devices hardware or some other new API or feature, there’s almost no reason you wouldn’t want to flip this back (as of writing this, the newest was iOS 10.3, and I set it back to 10.2) </p>
+
+<p> If you’re having trouble too, hopefully ticking these things off your checklist helped. Any questions, comments or flaming can be directed to chris@christopherkmoore.io or via <a href="https://twitter.com/crztopherkmoore"> twitter</a>. </p>
+
+
+{% endblock %}
+{% block title %}Contact{% endblock %}
+
+

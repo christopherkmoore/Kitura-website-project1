@@ -23,6 +23,24 @@
 	</div>
 </div>
 
+<div class="col-sm-12 col-sm-offset-0 col-md-10 col-md-offset-1">
+	<div class="post-list">
+		<article class="post">
+			<h1 class="post-title"> 9th Time's the Charm </h1>
+			<h2 class="post-description"> When things go slightly wrong during submission <small> 20 April 2017 </small>
+			</h2>
+			<hr>
+			<div class="post-excerpt"> If you’ve ever tried to submit an app to iTunes Connect, you know how painful the process can be for the first submission. If the entire process doesn’t burn a hole in your table, somehow blow up your wireless, and drink the rest of your beer and liquor, you’re bound to be thrown some generic error. Today mine was “(-22421)”, “ITMS-900022”,  “please try again”, and “What’s your problem, idiot?”.
+			</div>
+			</br>
+			<a href="/blog/9thtimeisthecharm"> Read More ... -> </a>
+
+		</article>
+
+
+	</div>
+</div>
+
 
  </br></br>
 {% endblock %}
