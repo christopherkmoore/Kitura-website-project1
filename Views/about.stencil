@@ -12,6 +12,6 @@ Hello. I'm Chris, a software developer in the Seattle Area. Before I did softwar
 {% endblock %}
 <h3 style="text-align:center; padding:0px">¯\_(ツ)_/¯</h2>
 
-{% block title %}Contact{% endblock %}
+{% block title %}About {% endblock %}
 
 

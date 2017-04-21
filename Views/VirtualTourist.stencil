@@ -87,6 +87,6 @@
 </div>
 
 {% endblock %}
-{% block title %}Contact{% endblock %}
+{% block title %}Virtual Tourist{% endblock %}
 
 

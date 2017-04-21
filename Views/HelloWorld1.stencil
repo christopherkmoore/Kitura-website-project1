@@ -18,6 +18,6 @@
 "> Heroku </a> (thanks pimps). Traffic is then forwarded out to this domain, and at that point it’s your problem. By the way heroku has some incredible documentation for their tools and is quite a joy to use from both the terminal or their web gui. I think IBM is still working on theirs maybe? ¯\_(ツ)_/¯ </p>
 
 {% endblock %}
-{% block title %}Contact{% endblock %}
+{% block title %}Hello World{% endblock %}
 
 

@@ -75,6 +75,6 @@
 </div>
 
 {% endblock %}
-{% block title %}Contact{% endblock %}
+{% block title %}Pitch Perfect{% endblock %}
 
 

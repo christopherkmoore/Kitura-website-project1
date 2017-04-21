@@ -4,7 +4,7 @@
 <h1 class="post-title"> 9th Time's the Charm </h1>
 <h2 class="post-description"> When things go slightly wrong during submission <small> 07 Mar 2017 </small>
 </h2>
-
+</hr>
 <p> If you’ve ever tried to submit an app to iTunes Connect, you know how painful the process can be for the first submission. If the entire process doesn’t burn a hole in your table, somehow blow up your wireless, and drink the rest of your beer and liquor, you’re bound to be thrown some generic error. Today mine were “(-22421)”, “ITMS-900022”,  “please try again”, and “What’s your problem, idiot?”.
 </p>
 
@@ -41,6 +41,6 @@
 
 
 {% endblock %}
-{% block title %}Contact{% endblock %}
+{% block title %}9th Time's the Charm{% endblock %}
 
 

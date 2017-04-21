@@ -87,6 +87,6 @@
 	</div>
 </div>
 {% endblock %}
-{% block title %}Contact{% endblock %}
+{% block title %}Packed! {% endblock %}
 
 
