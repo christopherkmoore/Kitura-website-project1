@@ -7,6 +7,24 @@
 <div class="col-sm-12 col-sm-offset-0 col-md-10 col-md-offset-1">
 	<div class="post-list">
 		<article class="post">
+			<h1 class="post-title"> End to End Development With Swift </h1>
+			<h2 class="post-description"> Swift built web endpoints for client-side consumption <small> 23 April 2017 </small>
+			</h2>
+			<hr>
+			<div class="post-excerpt"> Since I started making this blog, I’ve always been interested in the possibility of Swift as a fullstack language; I wanted to develop a basic REST API and consuming resources from client side applications. Well I’ve done just that, and what follows is going to be a detailed “Hello Kitura” guide on how you can build one.
+			</div>
+			</br>
+			<a href="/blog/EndToEndDevelopmentWithSwift"> Read More ... -> </a>
+
+		</article>
+
+
+	</div>
+</div>
+
+<div class="col-sm-12 col-sm-offset-0 col-md-10 col-md-offset-1">
+	<div class="post-list">
+		<article class="post">
 			<h1 class="post-title"> 9th Time's the Charm </h1>
 			<h2 class="post-description"> When things go slightly wrong during submission <small> 20 April 2017 </small>
 			</h2>

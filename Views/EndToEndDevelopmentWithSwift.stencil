@@ -1,0 +1,199 @@
+{% extends "blogPost.stencil" %}
+{% block blogPost %}
+
+
+<h1 class="post-title"> End to End Development With Swift  </h1>
+<h2 class="post-description"> Swift built web endpoints for client-side consumption <small> 23 April 2017 </small>
+</h2>
+<hr>
+
+<p> Since I started making this blog, I’ve always been interested in the possibility of Swift as a fullstack language; I wanted to develop a basic REST API and consuming resources from client side applications. Well I’ve done just that, and what follows is going to be a detailed “Hello Kitura” guide on how you can build one. Hang in there, because this is a bit of a long one.</p>
+
+<p> Here’s a quick rundown of the tools you’re going to need. <p>
+
+<ul> 
+	<li> Swift and Xcode </li>
+	<li> <a href="https://devcenter.heroku.com/articles/heroku-cli"> Heroku toolkit </a></li>
+	<li> <a href="https://signup.heroku.com/"> Heroku Account</a> (it’s free)</li>
+	<li> <a href="https://github.com/join"> A Github account. </a> </li>
+	<li> Beer -- tall can is best, but honestly players choice here. </li>
+</ul>
+
+<h3> Setting up the Simple Client </h3>
+
+<p> First things first, let’s go ahead and set up a simple server to serve up a GET request using Kitura. Open up the terminal, and navigate to a suitable location to make a directory for our API. </p> 
+</br>
+<img src="/static/images/EndToEndDevelopmentInSwift/swift-package-init.png"/>
+</br></br>
+<p class="code"> 
+mkdir KituraAPI </br>
+cd KituraAPI/ </br>
+swift package init --type executable </br>
+open Package.swift </br>
+</br> 
+
+<p> Now we need to edit our Package.swift file to include Kitura. It should look like <a href="https://github.com/christopherkmoore/KituraAPI/blob/master/Package.swift">this </a></p>
+
+<p> <i> Note: As of writing this on today’s date, the most stable release is the one included in the picture. This very well could be different if you’re 2 months or 2 years away from the date of my publishing this. </i></p> 
+
+<p> After editing our package.swift file, let’s go ahead and generate a projectfile so that we can use Xcode to make further edits. Back to the terminal, and make sure the working directory points to the root folder of our KituraAPI project, and type: </p> 
+
+</br>
+<p class="code">swift package generate-xcodeproj</p> 
+</br>
+
+<p> <i> Note: You’ll have noticed a bunch of Fetching and Cloning going on. That’s just the package manager going and grabbing all the Kitura files we will need to build our client. It will create a .xcodeproj file with the value we gave to “name” in our Package.swift file. </i></p>
+<p> followed by: </p>
+<p class="code">open KituraAPI.xcodeproj/</p> 
+
+<p><i> Note: if you gave your project a different name in the Packages.swift file like this: </i></p> 
+</br> <img src="/static/images/EndToEndDevelopmentInSwift/yolo420project.png"/> </br></br>
+<p><i> Then you would instead be typing: </i></p>
+<p class="code">open SmokeWeed420Yolo.xcodeproj/</p>
+
+<p> Just to be clear. </p>
+
+<p> If you expand your project tree all the way to your left, we want to begin editing the main.swift file: </p>
+</br> <img src="/static/images/EndToEndDevelopmentInSwift/project_tree.png" /> </br></br>
+
+<p> Before you do anything else, you want to add: </p> 
+<p class="code">import Kitura </br> </br>let router = Router()</p> </br>
+
+<p> As the very first three lines in the file. Delete the default print statement. Xcode will be grumpy and cranky and throw an error here. Don’t worry, you’re not wrong, the compiler is. If you’re on a mac use the hotkey ⌘ + B, and if you’re on any other OS and you’ve gotten this far, you really don’t need help on how to re-build an xcode project. </p> 
+
+<p> The project should re-build itself and link the new dependencies, and the error should go away. Shut up Xcode. Go ahead and add this code to your project: <p> 
+</br><img src="/static/images/EndToEndDevelopmentInSwift/router.getWithKituraLocalServer.png" /> </br> 
+
+<p> This is going to create a class of the Kitura Router class, for routing HTTP requests*. We use the router.get method to match a string to the url being put into the browser. In this case it’s http://localHost:8090/HelloWorld and finally we add an HTTP server to be run from our machine, and use Kitura.run() to make it execute forever. </p>
+</br><img src="/static/images/EndToEndDevelopmentInSwift/change_to_executable.png"></br></br>
+
+<p> If we switch over to our executable, and hit command + R, we can run it. If there are no errors, it should compile, and opening up a web browser and typing http://localHost:8090/HelloWorld should show the string we set in response.send(“Hello Kitura World”). </p>
+
+<p><i> Note: The url you type in your browser is CasE SenSiTivE. The router will search for the string “/HelloWorld”, not “/helloworld” or “/helloWorld” or “Helloworld”. You feel me? </i></p>
+
+<p>If everything is working, you should see this in your browser:</p>
+</br><img src="/static/images/EndToEndDevelopmentInSwift/HelloKituraWorld.png" /></br>
+
+<p> Congratulations. You just created your first website using Swift and Kitura. Now let's see what it takes to power a client-side application. </p>
+
+<h3> Deploying to Heroku </h3>
+<p> This next part will help create a static endpoint for your client-side application to reach out to. Attempting to fetch data from the url http://localHost:8090/HelloWorld will most likely end in disaster and frustration, so let’s make a heroku server and deploy our website to it. If you haven’t <a href="https://signup.heroku.com/">signed up</a> for Heroku and downloaded the Heroku <a href="https://devcenter.heroku.com/articles/heroku-cli">toolkit</a> or you’re out of beer, now is a good time to freshen up your glass. </p>
+
+<p> First things first, heroku needs a <a href="https://devcenter.heroku.com/articles/procfile">Procfile</a> in order to dynamically assign a port to your Router class. Go ahead and open your terminal again, and make sure your current directory is the one you created you ran the command “swift package init --type executable” in. If you’re following along, it should be ~/KituraAPI/. Go ahead and type: </p>
+
+<p class="code">vim Procfile</p>
+
+<p>And that should change your terminal to have a whole lot of squiggly lines in a single column. ~~~~. Vim has a bit of a learning curve, but once you hit some of the basics it’s not so bad. Hit the key ‘i’, and you should notice the terminal will change to --Insert-- at the bottom. Type this one-liner in: </p>
+
+</br><img src="/static/images/EndToEndDevelopmentInSwift/procfile2.png"></br></br>
+
+<p><i> Note: Again, if you declared a different value for “name” in your Package.swift file, you will use this value instead. If you’re following along with my code, the project should be called “KituraAPI”, which is what is shown. </i></p>
+
+<p>Toggle --Insert-- off by hitting esc on your keyboard, then save the file by typing :x </p>
+
+<p> This will tell vim that you want to save anything that wasn’t there when you initially opened vim. If you have no faith, and want to make sure things went smoothly, you can type: </p>
+
+<p class="code">cat Procfile</p>
+
+<p>And that will echo the contents of the file you just edited.</p>
+<p> Now we need a way for our KituraAPI to know the router port should be dynamically assigned. Head back over to main.swift and make <a href="https://github.com/christopherkmoore/KituraAPI/blob/master/Sources/main.swift">these changes</a> to your main.swift file. The big changes to note here are the addition of the import Foundation at line 3, and the additions of lines 14 - 16, adding the new port variable, as well as assigning the value of port, which is of type Int, to our Kitura.addHTTPServer(onPort: port, with: router).</p>
+
+<p> This is nice for two reason. We’ve used optional chaining to assign a port in the case that we aren’t deploying to Heroku. This is handy if we ever want to deploy to http://localHost:8090 again, since, if we aren’t deploying to our future Heroku server, the optional will be nil, and default to the value 8090. Second, our code will work in both the local environment, as well on our Heroku server. </p>
+
+<p> Heroku has a couple of default settings that make it very easy to deploy from your local GitHub repo. In order to take advantage of them, let’s take a second to commit and push our repo to GitHub. First head over to github, and create a new repo. </p> 
+</br><img src="/static/images/EndToEndDevelopmentInSwift/gitHubGUIRepoCreate.png" /> </br>
+
+<p> Then in terminal commit and push to the new master branch: <p>
+</br> <img src="/static/images/EndToEndDevelopmentInSwift/gitHubTerminalRepoPush.png" /> </br>
+
+<p><i> Note: If this is your first time using github, you will be prompted to edit a github config file to sync your settings locally with the settings you registered to github’s website. You can ignore this for now, and simply enter your github credentials when prompted. </i> </p>
+
+<p>Now flip back to the terminal and type:</p>
+<p class="code">heroku create --buildpack https://github.com/kylef/heroku-buildpack-swift.git</p>
+
+<p> Heroku create will create a new heroku app, while the flag --buildpack specifies the buildpack to use. Go star kylef’s repo because he makes it so you literally don’t even need to know what a buildpack is for this to work. He’s my hero. If you want to read more about buildpacks, go <a href="https://devcenter.heroku.com/articles/buildpacks">here</a>.</p>
+
+<p> If everything was successful, you now have a new endpoint for your clients API. Open up your new app by typing this in the terminal: </p>
+<p class="code">git push heroku master</p>
+<p> then: </p>
+<p class="code">heroku open</p>
+
+<p><i>Note: After git push heroku master, it should take some time to pull in dependencies from Kitura, build, and compile your new website. After heroku opens it should pull up your browser, and you’ll have to change the URL to point to /HelloWorld like so:</i></p>
+
+</br><img src="/static/images/EndToEndDevelopmentInSwift/herokuOpen.png" /></br></br>
+
+<p> This URL is the endpoint we’ll be using in our client application to access the information we need. Heroku will almost certainly generate an app name for your application that isn’t ‘pure-ridge-71295.herokuapp.com”, and that’s fine. You will still be using that endpoint for the client application. </p> 
+
+<h3> The Final Stretch - Pulling down the Data in Swift </h3>
+<p> For anyone familiar with writing native apps for iOS with Swift, this will by far be the easiest part. </p>
+<p> Open up a new project in Xcode and let’s call it KituraClient. It will be a Single View Application. Head over to Main.storyboards from the View Hierarchy, and drag in a UILabel from the bottom right hand side into the default ViewController </p>
+
+</br><img src="/static/images/EndToEndDevelopmentInSwift/UILabel.png" /></br></br>
+
+<p> Once you’ve dropped it into the View Controller, hold ctrl while clicking and dragging outside of the view until it highlights the entire rectangle of the View Controller. Let go and hold shift while you click “Center Horizontally in Container”, as well as “Center Vertically in Container”. Let go of shift and click “Add Constraints”. If you don't perfectly align the UILabel in the middle of the view, there will be some yellow/orange lines. You can chose to update the frames on storyboard to resolve the conflict, but you can also just ignore it. </p>
+
+<p> Next we need to inform our ViewController.swift file that there is a new UILabel. In the top right, if you hover over the two circles overlapping each other, it should show the option to “Show the Assistant Editor”: </p>
+
+</br><img src="/static/images/EndToEndDevelopmentInSwift/AssistantEditor.png" /></br></br>
+
+<p> Click that and it should change your editor to have two windows open, side by side. This should open up the View Controller you’re editing in storyboards, but if it doesn’t, option + click ViewController in the Hierarchy. Then, while holding ctrl, click and drag from the UILabel you placed in storyboards to the ViewController file open in the side-by-side editor. There should be a line growing from the storyboard onto your ViewController, and when you stop clicking, you should be left with an option that looks like this: </p>
+
+</br><img src="/static/images/EndToEndDevelopmentInSwift/cntrlDragToViewController.png" /></br></br>
+
+<p> Let’s name this variable helloKituraLabel. Next we are going to write the function to connect to our server on Heroku. Underneath override func viewDidLoad() add this code. </p>
+
+<p><i> Note: It's important that you're not dragging the constraints you made from earlier, so make sure the connection outlet is of type UILabel, and not NSConstraint. </i></p>
+
+<p> We are done with storyboards, so if you want you can reselect the standard editor to give yourself a bit more room: </p>
+
+</br><img src="/static/images/EndToEndDevelopmentInSwift/standardEditor.png" /></br></br>
+
+<p> Click on the file ViewController.swift, and let’s start writing some networking <a href="https://github.com/christopherkmoore/KituraClient/commit/1ef132a412ed099d06800b3313c7ee800fa4f8eb#diff-6067cffd6111e7f096366aa00b406981">code</a>. </p> 
+
+<p> We are declaring a function called downloadAPIData() and assigning an escaping <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Closures.html">closure</a> for our callback. Inside the function we are creating a few variables, the first is ‘url’, which should point to the url after you typed: </p>
+
+<p class="code">heroku open</p>
+
+<p> Copy and paste that value, since it will be different from the endpoint I have. </p>
+
+<p> The rest of the code should be pretty much verbatim. The variable ‘request’ creates a URLRequest pointing to the url we assigned in the variable ‘url’. We choose to force unwrap url! here because we literally just assigned a value to url. It should be.. Right? Let’s just pray it is. </p>
+
+<p> Then we create our session using URLSession.shared.dataTask(with: request) { data, response, error in … } and inside the body of this function we do some simple checks to see if there is a response and error. If there are, we unwrap them and print out a description of them to see what might have gone wrong. Then we use a guard statement to establish a safe variable for data. If data is nil, it will default to the else statement here, and print to the console something useless but let’s us know something is wrong, and also sets our callback Bool value to false. If it doesn’t evaluate to false, we will assign a new value ‘stringLabel’ to the initialization of a new string from our data. If this evaluates without issue, our final callback should fire, and we’ll be ready to use it to update our label. </p>
+
+
+<p> Add this <a href="https://github.com/christopherkmoore/KituraClient/commit/3bdfc78665f69cdf6f805b29a681b8e6c7e68236">new code</a> to your project. Here we are calling our function, and checking to see if our callback is true before creating an asynchronous call to update the views drawn on screen. If there are no errors, time to get your dongle out and run using ⌘ + R. On load you should see the screen load with the label’s default string value as “Label” before flashing to “Hello Kitura World”. </p>
+
+<p>And there you have it; you just wrote your first end to end application entirely in Swift. </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
+{% block title %}End to End Development with Swift {% endblock %}
+
+
